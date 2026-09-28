@@ -311,7 +311,7 @@ textarea {
 .hero {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 5.5rem 2rem 5rem;
+    padding: 2.5rem 2rem 5rem;
     display: grid;
     grid-template-columns: 0.96fr 1.04fr;
     gap: 4rem;
@@ -319,7 +319,7 @@ textarea {
 }
 
 .hero-content {
-    padding-top: 2rem;
+    padding-top: 0;
 }
 
 .eyebrow {
@@ -793,7 +793,7 @@ textarea {
     }
 
     .hero {
-        padding-top: 4rem;
+        padding-top: 2rem;
     }
 
     .hero-content {
