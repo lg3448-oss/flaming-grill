@@ -10,6 +10,24 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
   }
 
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealTargets = document.querySelectorAll('.favorites, .price-section, .coupons, .promotions, .location, .stack-grid');
+  if (reducedMotion || !('IntersectionObserver' in window)) {
+    revealTargets.forEach((target) => target.classList.add('is-visible'));
+  } else {
+    revealTargets.forEach((target) => {
+      if (!target.classList.contains('stack-grid')) target.classList.add('reveal-on-scroll');
+    });
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+    revealTargets.forEach((target) => revealObserver.observe(target));
+  }
+
   const dialog = document.querySelector('.gallery-dialog');
   if (!dialog) return;
   const galleries = {
