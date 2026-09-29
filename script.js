@@ -1,118 +1,77 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const siteMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const revealElements = document.querySelectorAll('.reveal');
-
-    document.querySelectorAll('.phone-trigger').forEach((trigger) => {
-        trigger.addEventListener('click', (event) => {
-            event.preventDefault();
-            const phone = trigger.dataset.phone;
-            const shouldCall = window.confirm(`Flaming Grill phone number: ${phone}\n\nPress OK to call.`);
-            if (shouldCall) {
-                window.location.href = trigger.href;
-            }
-        });
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  if (menuToggle && mobileMenu) {
+    const closeMenu = () => { mobileMenu.classList.remove('is-open'); menuToggle.setAttribute('aria-expanded', 'false'); };
+    menuToggle.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('is-open');
+      menuToggle.setAttribute('aria-expanded', String(open));
     });
+    mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+  }
 
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener('click', function (event) {
-            event.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
+  const dialog = document.querySelector('.gallery-dialog');
+  if (!dialog) return;
+  const galleries = {
+    seafood: { title: 'Seafood', images: [
+      ['./assets/hero-seafood.jpg', 'Crab, shrimp, crawfish and corn seafood feast'],
+      ['./images/drive-08.jpg', 'Hot seafood buffet selection'],
+      ['./images/drive-09.jpg', 'Seasoned seafood at the buffet'],
+      ['./images/drive-10.jpg', 'Crab legs and seafood buffet']
+    ]},
+    sushi: { title: 'Sushi', images: [
+      ['./images/sushi-new-02.png', 'Fresh sushi rolls at the buffet'],
+      ['./images/sushi-bar.jpg', 'Sushi bar selection at Flaming Grill']
+    ]},
+    hibachi: { title: 'Hibachi', images: [
+      ['./images/drive-05.jpg', 'Flaming Grill hibachi station'],
+      ['./images/drive-06.jpg', 'Hot noodles and vegetables at the grill'],
+      ['./images/drive-07.jpg', 'Freshly cooked hibachi noodles'],
+      ['./images/drive-08.jpg', 'Hot buffet and hibachi selection']
+    ]}
+  };
+  const title = dialog.querySelector('#gallery-title');
+  const mainImage = dialog.querySelector('.gallery-main');
+  const count = dialog.querySelector('.gallery-count');
+  const thumbs = dialog.querySelector('.gallery-thumbs');
+  let activeGallery = null;
+  let activeIndex = 0;
+
+  const render = () => {
+    if (!activeGallery) return;
+    const [src, alt] = activeGallery.images[activeIndex];
+    mainImage.src = src; mainImage.alt = alt;
+    count.textContent = `${activeIndex + 1} of ${activeGallery.images.length}`;
+    thumbs.querySelectorAll('button').forEach((button, index) => {
+      button.classList.toggle('active', index === activeIndex);
+      button.setAttribute('aria-current', index === activeIndex ? 'true' : 'false');
     });
-
-    if (menuToggle && siteMenu) {
-        const closeMenu = () => {
-            siteMenu.classList.remove('is-open');
-            menuToggle.setAttribute('aria-expanded', 'false');
-            menuToggle.setAttribute('aria-label', 'Open navigation menu');
-        };
-
-        menuToggle.addEventListener('click', () => {
-            const isOpen = siteMenu.classList.toggle('is-open');
-            menuToggle.setAttribute('aria-expanded', String(isOpen));
-            menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
-        });
-
-        navLinks.forEach((link) => link.addEventListener('click', closeMenu));
-    }
-
-    document.querySelectorAll('button, .promo-button, .branch-button, .register-submit, .cta-button').forEach((button) => {
-        button.addEventListener('click', function () {
-            this.style.transform = 'scale(0.97)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 180);
-        });
+  };
+  const buildThumbs = () => {
+    thumbs.replaceChildren();
+    activeGallery.images.forEach(([src], index) => {
+      const button = document.createElement('button');
+      button.type = 'button'; button.setAttribute('aria-label', `Show photo ${index + 1}`);
+      const image = document.createElement('img'); image.src = src; image.alt = '';
+      button.append(image);
+      button.addEventListener('click', () => { activeIndex = index; render(); });
+      thumbs.append(button);
     });
+  };
+  const move = (amount) => { activeIndex = (activeIndex + amount + activeGallery.images.length) % activeGallery.images.length; render(); };
 
-    const registerForm = document.querySelector('.register-form form');
-    if (registerForm) {
-        registerForm.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            const inputs = this.querySelectorAll('input, textarea');
-            inputs.forEach((input) => {
-                input.style.borderColor = '#4CAF50';
-            });
-
-            const successMsg = document.createElement('div');
-            successMsg.style.cssText = `
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background: rgba(76, 175, 80, 0.96);
-                color: white;
-                padding: 1.5rem 2.2rem;
-                border-radius: 14px;
-                font-size: 1.05rem;
-                font-weight: 700;
-                z-index: 9999;
-                box-shadow: 0 24px 45px rgba(0, 0, 0, 0.24);
-            `;
-            successMsg.textContent = 'Thank you for joining Flaming Grill.';
-            document.body.appendChild(successMsg);
-
-            setTimeout(() => {
-                successMsg.remove();
-                inputs.forEach((input) => {
-                    input.value = '';
-                    input.style.borderColor = '';
-                });
-            }, 2500);
-        });
-    }
-
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.15 });
-
-    revealElements.forEach((element) => imageObserver.observe(element));
-
-    document.querySelectorAll('img').forEach((img) => {
-        img.loading = 'lazy';
-        img.addEventListener('error', function () {
-            this.style.background = 'linear-gradient(135deg, rgba(216,64,45,0.12), rgba(255,157,87,0.08))';
-            this.style.border = '1px solid rgba(255,255,255,0.08)';
-        });
-    });
+  document.querySelectorAll('.photo-stack').forEach((stack) => stack.addEventListener('click', () => {
+    activeGallery = galleries[stack.dataset.gallery]; activeIndex = 0;
+    title.textContent = activeGallery.title; buildThumbs(); render(); dialog.showModal();
+    document.body.classList.add('dialog-open');
+  }));
+  dialog.querySelector('.gallery-prev').addEventListener('click', () => move(-1));
+  dialog.querySelector('.gallery-next').addEventListener('click', () => move(1));
+  dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
+  dialog.addEventListener('close', () => document.body.classList.remove('dialog-open'));
+  dialog.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') move(-1);
+    if (event.key === 'ArrowRight') move(1);
+  });
 });
-
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (!navbar) return;
-    navbar.style.boxShadow = window.scrollY > 20 ? '0 14px 40px rgba(0, 0, 0, 0.22)' : '0 10px 28px rgba(0, 0, 0, 0.18)';
-});
-
-console.log('%c🔥 Welcome to Flaming Grill', 'font-size: 24px; color: #ff9d57; font-weight: bold;');
-console.log('%cFire-kissed flavors, made unforgettable.', 'font-size: 14px; color: #d8402d;');

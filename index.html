@@ -1,163 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flaming Grill - Premium Grill Restaurant</title>
-    <meta name="description" content="Premium grill restaurant landing page with signature dishes, offers, and membership.">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Flaming Grill & Supreme Buffet in Brick, New Jersey. Hibachi, sushi, seafood and family dining.">
+  <title>Flaming Grill & Supreme Buffet | Brick, NJ</title>
+  <link rel="preload" as="image" href="./assets/hero-seafood.jpg">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar" aria-label="Primary navigation">
-        <div class="nav-container">
-            <a class="logo" href="#home" aria-label="Flaming Grill home">
-                <img class="logo-image-extracted" src="./images/flaming-grill-transparent.png" alt="Flaming Grill">
-            </a>
-            <span class="nav-slogan">Fire-kissed comfort</span>
-
-            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation menu">
-                <span></span><span></span><span></span>
-            </button>
-
-            <div class="nav-menu" id="site-menu">
-                <div class="menu-panel-head">
-                    <span>Explore</span>
-                    <span class="menu-panel-fire" aria-hidden="true">✦</span>
-                </div>
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#menu" class="nav-link">Menu</a>
-                <a href="./order.html" class="nav-link">Online Order</a>
-                <a href="#branch" class="nav-link">Locations</a>
-                <a href="#story" class="nav-link">Our Story</a>
-            </div>
-        </div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Flaming Grill home"><img src="./images/flaming-grill-transparent.png" alt="Flaming Grill & Supreme Buffet"></a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#favorites">Buffet</a><a href="#prices">Prices</a><a href="#coupons">Coupons</a><a href="#promotions">Promotions</a><a href="#location">Location</a>
     </nav>
+    <div class="header-actions">
+      <a class="order-button" href="./order.html">Order Online</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+      <a href="#favorites">Buffet</a><a href="#prices">Prices</a><a href="#coupons">Coupons</a><a href="#promotions">Promotions</a><a href="#location">Location</a>
+    </nav>
+  </header>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1 class="sr-only">Flaming Grill</h1>
-            <p>Bold flavors, warm hospitality, and the kind of dining people remember.</p>
-            <a class="cta-button phone-trigger" href="tel:+17329204888" data-phone="732-920-4888">Call to Reserve</a>
+  <main>
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <img class="hero-photo" src="./assets/hero-seafood.jpg" alt="A generous seafood feast with crab, shrimp, crawfish and corn">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Brick, New Jersey</p>
+        <h1 id="hero-title">Come hungry.<br>Leave happy.</h1>
+        <p>Hibachi, sushi and seafood, all in one unforgettable buffet.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#favorites">Explore the Buffet</a>
+          <a class="button button-secondary" href="#location">Get Directions</a>
         </div>
-        <div class="hero-image">
-            <img src="./images/drive-10.jpg" alt="Fresh seafood bar with shrimp, lobster, and mussels">
-        </div>
+      </div>
     </section>
 
-    <section class="hot-dishes" id="menu">
-        <div class="container">
-            <h2 class="section-title">Seafood &amp; Sushi Favorites</h2>
-            <div class="dishes-grid">
-                <article class="dish-card glass-card reveal">
-                    <img src="./images/drive-04.jpg" alt="Ice cream bar with assorted desserts">
-                    <h3>Ice Cream Bar</h3>
-                    <p>Cool, colorful treats to finish your meal.</p>
-                    <span class="price">Fresh daily</span>
-                </article>
-                <article class="dish-card glass-card reveal">
-                    <img src="./images/drive-10.jpg" alt="Seafood buffet with lobster, shrimp, and mussels">
-                    <h3>Seafood Bar</h3>
-                    <p>Lobster, shrimp, mussels, and bright seasonal sides.</p>
-                    <span class="price">Fresh daily</span>
-                </article>
-                <article class="dish-card glass-card reveal">
-                    <img src="./images/sushi-bar.jpg" alt="Fresh sushi rolls served at Flaming Grill">
-                    <h3>Sushi Bar</h3>
-                    <p>Fresh rolls and easy-to-share bites made daily.</p>
-                    <span class="price">Fresh daily</span>
-                </article>
-                <article class="dish-card glass-card reveal">
-                    <img src="./images/drive-07.jpg" alt="Hot food bar with prepared dishes">
-                    <h3>Hot Food Bar</h3>
-                    <p>Comforting favorites served hot and ready to share.</p>
-                    <span class="price">Fresh daily</span>
-                </article>
-            </div>
-        </div>
+    <section class="quick-info" aria-label="Restaurant quick information">
+      <a href="tel:+17329204888"><span>Call us</span><strong>732-920-4888</strong></a>
+      <a href="#hours"><span>Open daily</span><strong>From 11:00 AM</strong></a>
+      <a href="#location"><span>Visit us</span><strong>2770 Hooper Ave</strong></a>
     </section>
 
-    <section class="menu-categories">
-        <div class="container">
-            <h2 class="section-title">Explore the Menu</h2>
-            <div class="categories-grid">
-                <article class="category-item glass-card reveal">
-                    <img src="./images/drive-10.jpg" alt="Lobster, shrimp, and seafood buffet">
-                    <h3>Ocean Favorites</h3>
-                    <p>Bright, generous, and ready for the table.</p>
-                </article>
-                <article class="category-item glass-card reveal">
-                    <img src="./images/sushi-bar.jpg" alt="Fresh sushi rolls served at Flaming Grill">
-                    <h3>Sushi Bar</h3>
-                    <p>Fresh rolls, rice, and easy-to-share bites.</p>
-                </article>
-            </div>
-        </div>
+    <section class="favorites" id="favorites" aria-labelledby="favorites-title">
+      <div class="section-heading">
+        <p class="eyebrow red">The buffet, up close</p>
+        <h2 id="favorites-title">Three reasons to fill your plate.</h2>
+        <p>Choose a stack to open the full collection.</p>
+      </div>
+      <div class="stack-grid">
+        <button class="photo-stack" type="button" data-gallery="seafood" aria-label="Open Seafood photo gallery">
+          <span class="stack-visual" aria-hidden="true"><img src="./images/drive-08.jpg" alt=""><img src="./images/drive-09.jpg" alt=""><img src="./images/drive-10.jpg" alt=""></span>
+          <span class="stack-copy"><strong>Seafood</strong><small>Crab, shrimp, crawfish and more</small><em>View 4 photos</em></span>
+        </button>
+        <button class="photo-stack" type="button" data-gallery="sushi" aria-label="Open Sushi photo gallery">
+          <span class="stack-visual" aria-hidden="true"><img src="./images/sushi-bar.jpg" alt=""><img src="./images/sushi-new-02.png" alt=""></span>
+          <span class="stack-copy"><strong>Sushi</strong><small>Fresh rolls made for sharing</small><em>View 2 photos</em></span>
+        </button>
+        <button class="photo-stack" type="button" data-gallery="hibachi" aria-label="Open Hibachi photo gallery">
+          <span class="stack-visual" aria-hidden="true"><img src="./images/drive-05.jpg" alt=""><img src="./images/drive-06.jpg" alt=""><img src="./images/drive-07.jpg" alt=""></span>
+          <span class="stack-copy"><strong>Hibachi</strong><small>Built your way, grilled hot</small><em>View 4 photos</em></span>
+        </button>
+      </div>
     </section>
 
-    <section class="branches" id="branch">
-        <div class="container">
-            <h2 class="section-title">Find a Location</h2>
-            <div class="branches-grid">
-                <article class="branch-card glass-card reveal">
-                    <h3>📍 Visit Flaming Grill</h3>
-                    <p>2770 HOOPER AVE, BRICK, NJ 08723</p>
-                    <p>Fresh seafood, sushi, and grill favorites served daily.</p>
-                    <a class="branch-button phone-trigger" href="tel:+17329204888" data-phone="732-920-4888">Call to Reserve</a>
-                </article>
-            </div>
-        </div>
+    <section class="price-section" id="prices" aria-labelledby="prices-title">
+      <div class="section-heading center"><p class="eyebrow red">Lunch and dinner</p><h2 id="prices-title">Buffet prices.</h2></div>
+      <img src="./assets/price-table-soft.png" alt="Flaming Grill lunch and dinner buffet prices for adults and children" loading="lazy">
+      <p>Prices and availability may change. Please call the restaurant to confirm current pricing.</p>
     </section>
 
-    <section class="story" id="story">
-        <div class="container">
-            <div class="story-content glass-card reveal">
-                <div class="story-text">
-                    <h2>Our Story</h2>
-                    <p>Flaming Grill began in 2015 with one simple idea: great ingredients deserve a little fire and a lot of care.</p>
-                    <p>Our chefs bring together grilling traditions from Japan, Korea, and beyond. Every cut, vegetable, and sauce is selected to make the meal feel effortless and memorable.</p>
-                    <p>Today, our Brick location welcomes guests who come for the food, stay for the atmosphere, and return for the warmth of the flame.</p>
-                </div>
-                <div class="story-image">
-                    <img src="./images/drive-12.jpg" alt="Flaming Grill restaurant kitchen and buffet display">
-                </div>
-            </div>
-        </div>
+    <section class="coupons" id="coupons" aria-labelledby="coupons-title">
+      <div class="section-heading"><p class="eyebrow red">Restaurant coupons</p><h2 id="coupons-title">Save on your next visit.</h2><p>Open a coupon and show it on your phone before payment.</p></div>
+      <div class="coupon-grid">
+        <a href="./assets/coupon04.jpg" target="_blank"><img src="./assets/coupon04.jpg" alt="One dollar off lunch buffet coupon" loading="lazy"><strong>$1 Off Lunch Buffet</strong></a>
+        <a href="./assets/coupon05.jpg" target="_blank"><img src="./assets/coupon05.jpg" alt="One dollar and fifty cents off dinner buffet coupon" loading="lazy"><strong>$1.50 Off Dinner Buffet</strong></a>
+        <a href="./assets/coupon03.jpg" target="_blank"><img src="./assets/coupon03.jpg" alt="Birthday guest eats free coupon" loading="lazy"><strong>Birthday Guest Eats Free</strong></a>
+        <a href="./assets/coupon06.jpg" target="_blank"><img src="./assets/coupon06.jpg" alt="Tuesday kids offer coupon" loading="lazy"><strong>Tuesday Kids Offer</strong></a>
+      </div>
+      <p class="terms">One coupon per table. Not valid with other offers or on holidays. Restrictions may apply.</p>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>About</h4>
-                    <ul>
-                        <li><a href="#">Our Company</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Investors</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="./order.html">Order Online</a></li>
-                        <li><a href="#">Reserve a Table</a></li>
-                        <li><a href="#">Delivery</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Newsletter</a></li>
-                        <li><a href="#">Customer Care</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Flaming Grill. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <section class="promotions" id="promotions" aria-labelledby="promotions-title">
+      <div class="section-heading"><p class="eyebrow">Current promotions</p><h2 id="promotions-title">More reasons to celebrate.</h2><p>Limited-time offers are subject to restaurant terms and availability.</p></div>
+      <div class="promo-grid">
+        <figure><img src="./assets/promo-school-099.jpg" alt="Kids 99 cent special promotion" loading="lazy"><figcaption><strong>Kids 99¢ Special</strong><span>Ages 3 to 8, Monday through Thursday</span></figcaption></figure>
+        <article class="gift-card"><p class="eyebrow">Gift card bonus</p><h3>Give more.<br>Get more.</h3><ul><li><span>Buy $50</span><strong>Get $10 bonus</strong></li><li><span>Buy $100</span><strong>Get $20 bonus</strong></li><li><span>Buy $200</span><strong>Get $45 bonus</strong></li></ul><p>Ask the restaurant for current dates and redemption terms.</p></article>
+      </div>
+    </section>
 
-    <script src="script.js"></script>
+    <section class="location" id="location">
+      <div class="map-panel">
+        <iframe title="Google map showing Flaming Grill & Supreme Buffet" src="https://www.google.com/maps?q=Flaming+Grill+%26+Supreme+Buffet%2C+2770+Hooper+Ave%2C+Brick%2C+NJ+08723&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+      <div class="location-card">
+        <p class="eyebrow red">Your local buffet</p><h2>Visit Flaming Grill.</h2>
+        <address>2770 Hooper Ave<br>Brick, NJ 08723</address>
+        <a class="phone-link" href="tel:+17329204888">732-920-4888</a>
+        <div class="hours" id="hours"><h3>Hours</h3><dl><div><dt>Monday to Thursday</dt><dd>11:00 AM to 9:30 PM</dd></div><div><dt>Friday and Saturday</dt><dd>11:00 AM to 10:00 PM</dd></div><div><dt>Sunday</dt><dd>11:00 AM to 9:30 PM</dd></div></dl></div>
+        <div class="location-actions">
+          <a class="button button-primary" href="https://www.google.com/maps/place/Flaming+Grill+%26+Supreme+Buffet/@40.0555732,-74.136483,17z/data=!3m1!4b1!4m6!3m5!1s0x89c183774d2353b9:0x7e8dcd64d9b1ff2b!8m2!3d40.0555732!4d-74.136483!16s%2Fg%2F11btrsjglb?entry=ttu" target="_blank" rel="noopener">Visit Google Reviews</a>
+          <a class="button button-dark" href="https://www.instagram.com/flaminggrillnj/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><img src="./images/flaming-grill-transparent.png" alt="Flaming Grill & Supreme Buffet"><p>Hibachi · Sushi · Seafood · Family Dining</p><p>2770 Hooper Ave, Brick, NJ 08723</p><small>© 2026 Flaming Grill & Supreme Buffet.</small></footer>
+
+  <dialog class="gallery-dialog" aria-labelledby="gallery-title">
+    <div class="dialog-topbar"><div><span>Flaming Grill</span><h2 id="gallery-title">Gallery</h2></div><button class="dialog-close" type="button">Close</button></div>
+    <div class="gallery-stage"><button class="gallery-control gallery-prev" type="button">Previous</button><figure><img class="gallery-main" src="./assets/hero-seafood.jpg" alt="Seafood buffet"><figcaption class="gallery-count"></figcaption></figure><button class="gallery-control gallery-next" type="button">Next</button></div>
+    <div class="gallery-thumbs" aria-label="Choose a photo"></div>
+  </dialog>
+  <script src="script.js"></script>
 </body>
 </html>
