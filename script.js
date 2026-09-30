@@ -50,10 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ['./images/hibachi-new-01.png', 'Hibachi chef flame-grilling at the table'],
       ['./images/hibachi-new-02.png', 'Hibachi grill with fried rice, noodles, steak and shrimp'],
       ['./images/hibachi-new-03.png', 'Hibachi plate with steak, shrimp and fried rice'],
-      ['./images/drive-05.jpg', 'Flaming Grill hibachi station'],
-      ['./images/drive-06.jpg', 'Hot noodles and vegetables at the grill'],
-      ['./images/drive-07.jpg', 'Freshly cooked hibachi noodles'],
-      ['./images/drive-08.jpg', 'Hot buffet and hibachi selection']
+      ['./images/drive-05.jpg', 'Flaming Grill hibachi station']
     ]}
   };
   const title = dialog.querySelector('#gallery-title');
