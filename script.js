@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const revealTargets = document.querySelectorAll('.favorites, .price-section, .coupons, .promotions, .location, .stack-grid');
+  const revealTargets = document.querySelectorAll('.favorites, .price-section, .promotions, .location, .stack-grid');
   if (reducedMotion || !('IntersectionObserver' in window)) {
     revealTargets.forEach((target) => target.classList.add('is-visible'));
   } else {
@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const galleries = {
     seafood: { title: 'Seafood', images: [
       ['./images/seafood-new-01.png', 'Fresh oysters on ice with lemon'],
-      ['./images/seafood-new-02.png', 'Grilled salmon, lobster tail and shrimp'],
       ['./images/seafood-new-03.png', 'Buffet seafood station with crawfish and shrimp'],
       ['./assets/hero-seafood.jpg', 'Crab, shrimp, crawfish and corn seafood feast'],
       ['./images/drive-08.jpg', 'Hot seafood buffet selection'],
@@ -47,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
       ['./images/sushi-new-02.png', 'Fresh sushi rolls at the buffet']
     ]},
     hibachi: { title: 'Hibachi', images: [
-      ['./images/hibachi-new-01.png', 'Hibachi chef flame-grilling at the table'],
       ['./images/hibachi-new-02.png', 'Hibachi grill with fried rice, noodles, steak and shrimp'],
       ['./images/hibachi-new-03.png', 'Hibachi plate with steak, shrimp and fried rice'],
       ['./images/drive-05.jpg', 'Flaming Grill hibachi station']
