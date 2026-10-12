@@ -32,6 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!dialog) return;
   const galleries = {
     seafood: { title: 'Seafood', images: [
+      ['./images/seafood-buffet.jpg', 'Seafood buffet station with shrimp, oysters and clams on ice'],
+      ['./images/seafood-cold-dishes.jpg', 'Cold seafood salads including spicy squid and kimchi'],
       ['./images/seafood-new-01.png', 'Fresh oysters on ice with lemon'],
       ['./images/seafood-new-03.png', 'Buffet seafood station with crawfish and shrimp'],
       ['./assets/hero-seafood.jpg', 'Crab, shrimp, crawfish and corn seafood feast'],
@@ -40,12 +42,15 @@ document.addEventListener('DOMContentLoaded', () => {
       ['./images/drive-10.jpg', 'Crab legs and seafood buffet']
     ]},
     sushi: { title: 'Sushi', images: [
+      ['./images/sushi-counter.jpg', 'Sushi bar counter with trays of rolls'],
+      ['./images/sushi-trays.jpg', 'Sushi bar with a full row of fresh rolls'],
       ['./images/sushi-new-03.png', 'Assorted sushi rolls and nigiri platter'],
       ['./images/sushi-new-04.png', 'Close-up shrimp sushi roll'],
       ['./images/sushi-new-05.png', 'Salmon and specialty sushi rolls'],
       ['./images/sushi-new-02.png', 'Fresh sushi rolls at the buffet']
     ]},
     hibachi: { title: 'Hibachi', images: [
+      ['./images/hibachi-prep.png', 'Raw hibachi ingredients station with meat, shrimp and vegetables'],
       ['./images/hibachi-new-02.png', 'Hibachi grill with fried rice, noodles, steak and shrimp'],
       ['./images/hibachi-new-03.png', 'Hibachi plate with steak, shrimp and fried rice'],
       ['./images/drive-05.jpg', 'Flaming Grill hibachi station']
